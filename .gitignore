@@ -27,4 +27,5 @@
 *.out
 *.app
 
-/build/*
+build/*
+imglab/build/*
