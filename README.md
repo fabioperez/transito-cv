@@ -6,7 +6,7 @@ cd imglab
 mkdir build
 cd build
 cmake ..
-cmake --build
+cmake --build .
 ```
 
 2. Create XML from sample images:
