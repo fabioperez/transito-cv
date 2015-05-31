@@ -2,6 +2,8 @@ This is a traffic sign detector that uses [dlib](http://dlib.net/) and its imple
 
 The training examples used in this repository are from Brazilian road signs, but the detector should work with any traffic signs, as long as you train it properly. Google Street View images can be used to train the detector. 25~40 images are sufficient to train a good detector.
 
+![](https://cloud.githubusercontent.com/assets/294960/7904020/7d216ae0-07c3-11e5-96fe-2b9d020fec4c.png)
+
 ## Build
 
 ```
