@@ -17,4 +17,5 @@ ENDMACRO()
 add_source(hog_detector)
 add_source(train_object_detector)
 add_source(detect)
+add_source(view_hog)
 
