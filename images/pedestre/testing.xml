@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='test/pedestre_test_00001.png'>
+    <box top='157' left='512' width='120' height='149'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='test/pedestre_test_00002.png'>
+    <box top='119' left='548' width='97' height='218'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='test/pedestre_test_00003.png'>
+    <box top='140' left='486' width='147' height='211'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='test/pedestre_test_00004.png'>
+    <box top='190' left='549' width='79' height='81'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+</images>
+</dataset>

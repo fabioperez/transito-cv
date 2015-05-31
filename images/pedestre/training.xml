@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='train/pedestre_train_00001.png'>
+    <box top='154' left='527' width='147' height='158'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00002.png'>
+    <box top='125' left='484' width='136' height='134'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00003.png'>
+    <box top='126' left='652' width='180' height='184'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00004.png'>
+    <box top='53' left='761' width='142' height='141'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00005.png'>
+    <box top='152' left='528' width='162' height='186'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00006.png'>
+    <box top='113' left='577' width='166' height='172'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00007.png'>
+    <box top='286' left='395' width='207' height='215'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00008.png'>
+    <box top='372' left='495' width='138' height='136'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00009.png'>
+    <box top='6' left='633' width='202' height='200'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00010.png'>
+    <box top='97' left='606' width='240' height='292'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00011.png'>
+    <box top='185' left='485' width='104' height='108'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00012.png'>
+    <box top='126' left='465' width='164' height='175'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00013.png'>
+    <box top='143' left='430' width='158' height='177'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00014.png'>
+    <box top='267' left='488' width='82' height='87'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+  <image file='train/pedestre_train_00015.png'>
+    <box top='205' left='546' width='155' height='150'>
+      <label>PEDESTRE</label>
+    </box>
+  </image>
+</images>
+</dataset>
