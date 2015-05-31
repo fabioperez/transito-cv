@@ -1,4 +1,4 @@
-This is a traffic sign detector, that uses [dlib](http://dlib.net/) and its implementation of the Felzenszwalb's version of the Histogram of Oriented (HoG) detector.
+This is a traffic sign detector that uses [dlib](http://dlib.net/) and its implementation of the Felzenszwalb's version of the Histogram of Oriented (HoG) detector.
 
 The training examples used in this repository are from Brazilian road signs, but the detector should work with any traffic signs, as long as you train it properly. Google Street View images can be used to train the detector. 25~40 images are sufficient to train a good detector.
 
