@@ -4,26 +4,190 @@
 <name>imglab dataset</name>
 <comment>Created by imglab tool.</comment>
 <images>
-  <image file='train/01.jpg'>
-    <box top='43' left='39' width='384' height='365'/>
+  <image file='train/pare_train_00001.jpg'>
+    <box top='139' left='496' width='107' height='127'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='train/02.jpg'>
-    <box top='47' left='251' width='246' height='242'/>
+  <image file='train/pare_train_00002.jpg'>
+    <box top='94' left='234' width='490' height='501'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='train/03.jpg'>
-    <box top='88' left='182' width='392' height='385'/>
+  <image file='train/pare_train_00003.jpg'>
+    <box top='36' left='187' width='655' height='633'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='train/04.jpg'>
-    <box top='38' left='146' width='527' height='491'/>
+  <image file='train/pare_train_00004.jpg'>
+    <box top='200' left='247' width='475' height='477'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='train/05.jpg'>
-    <box top='101' left='127' width='238' height='242'/>
+  <image file='train/pare_train_00005.jpg'>
+    <box top='36' left='186' width='591' height='606'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='train/06.jpg'>
-    <box top='20' left='83' width='314' height='302'/>
+  <image file='train/pare_train_00006.jpg'>
+    <box top='238' left='832' width='93' height='105'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='train/07.jpg'>
-    <box top='5' left='15' width='217' height='217'/>
+  <image file='train/pare_train_00007.jpg'>
+    <box top='136' left='818' width='81' height='87'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00008.jpg'>
+    <box top='80' left='692' width='141' height='161'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00009.jpg'>
+    <box top='272' left='732' width='48' height='41'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00010.jpg'>
+    <box top='244' left='763' width='104' height='106'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00027.jpg'>
+    <box top='189' left='826' width='43' height='46'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00033.jpg'>
+    <box top='226' left='680' width='69' height='71'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00034.jpg'>
+    <box top='146' left='803' width='58' height='55'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00036.jpg'>
+    <box top='199' left='786' width='63' height='70'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00037.jpg'>
+    <box top='192' left='730' width='65' height='71'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00038.jpg'>
+    <box top='130' left='831' width='106' height='115'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00039.jpg'>
+    <box top='161' left='796' width='71' height='82'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00040.jpg'>
+    <box top='191' left='132' width='65' height='64'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00041.jpg'>
+    <box top='111' left='467' width='110' height='122'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00042.jpg'>
+    <box top='2' left='1' width='498' height='495'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00043.jpg'>
+    <box top='34' left='51' width='358' height='422'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00044.jpg'>
+    <box top='49' left='50' width='406' height='392'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00045.jpg'>
+    <box top='3' left='99' width='354' height='417'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00046.jpg'>
+    <box top='120' left='307' width='55' height='62'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00047.jpg'>
+    <box top='49' left='69' width='353' height='348'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00048.jpg'>
+    <box top='51' left='71' width='365' height='383'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00049.jpg'>
+    <box top='7' left='19' width='286' height='283'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00050.jpg'>
+    <box top='67' left='87' width='323' height='311'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00051.jpg'>
+    <box top='52' left='291' width='58' height='59'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00052.jpg'>
+    <box top='31' left='56' width='363' height='415'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00058.jpg'>
+    <box top='45' left='184' width='66' height='74'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00059.jpg'>
+    <box top='25' left='40' width='397' height='447'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00060.jpg'>
+    <box top='87' left='390' width='64' height='69'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00061.jpg'>
+    <box top='57' left='131' width='260' height='274'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00062.jpg'>
+    <box top='112' left='202' width='35' height='41'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00063.jpg'>
+    <box top='102' left='321' width='60' height='63'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='train/pare_train_00064.jpg'>
+    <box top='81' left='288' width='69' height='69'>
+      <label>PARE</label>
+    </box>
   </image>
 </images>
 </dataset>
