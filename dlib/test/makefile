@@ -99,7 +99,6 @@ SRC += max_sum_submatrix.cpp
 SRC += md5.cpp
 SRC += member_function_pointer.cpp
 SRC += metaprogramming.cpp
-SRC += mpc.cpp
 SRC += multithreaded_object.cpp
 SRC += numerical_integration.cpp
 SRC += object_detector.cpp

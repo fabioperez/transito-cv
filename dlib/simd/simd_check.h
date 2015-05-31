@@ -27,29 +27,19 @@
         #endif
     #else
         #ifdef __SSE2__
-            #ifndef DLIB_HAVE_SSE2
-                #define DLIB_HAVE_SSE2
-            #endif 
+            #define DLIB_HAVE_SSE2
         #endif
         #ifdef __SSSE3__
-            #ifndef DLIB_HAVE_SSE3
-                #define DLIB_HAVE_SSE3
-            #endif
+            #define DLIB_HAVE_SSE3
         #endif
         #ifdef __SSE4_1__
-            #ifndef DLIB_HAVE_SSE41
-                #define DLIB_HAVE_SSE41
-            #endif
+            #define DLIB_HAVE_SSE41
         #endif
         #ifdef __AVX__
-            #ifndef DLIB_HAVE_AVX
-                #define DLIB_HAVE_AVX
-            #endif
+            #define DLIB_HAVE_AVX
         #endif
         #ifdef __AVX2__
-            #ifndef DLIB_HAVE_AVX2
-                #define DLIB_HAVE_AVX2
-            #endif
+            #define DLIB_HAVE_AVX2
         #endif
     #endif
 #endif
