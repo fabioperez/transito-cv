@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='test/lombada_00001.png'>
+    <box top='226' left='150' width='63' height='59'>
+      <label>LOMBADA</label>
+    </box>
+    <box top='223' left='925' width='39' height='46'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00015.png'>
+    <box top='126' left='335' width='220' height='231'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00017.png'>
+    <box top='136' left='371' width='193' height='184'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00018.png'>
+    <box top='81' left='69' width='223' height='226'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00019.png'>
+    <box top='126' left='588' width='323' height='331'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00020.png'>
+    <box top='163' left='390' width='206' height='217'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00021.png'>
+    <box top='139' left='200' width='172' height='163'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00022.png'>
+    <box top='155' left='703' width='130' height='145'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00029.png'>
+    <box top='74' left='526' width='166' height='181'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00034.png'>
+    <box top='122' left='592' width='129' height='138'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='test/lombada_00040.png'>
+    <box top='158' left='525' width='103' height='106'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+</images>
+</dataset>

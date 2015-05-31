@@ -4,20 +4,174 @@
 <name>imglab dataset</name>
 <comment>Created by imglab tool.</comment>
 <images>
-  <image file='test/03.jpg'>
-    <box top='80' left='100' width='320' height='210'/>
+  <image file='test/pare_test_00001.jpg'>
+    <box top='46' left='84' width='592' height='639'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='test/1.jpg'>
-    <box top='35' left='56' width='377' height='342'/>
+  <image file='test/pare_test_00002.jpg'>
+    <box top='8' left='571' width='413' height='532'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='test/2.jpg'>
-    <box top='-6' left='352' width='240' height='334'/>
+  <image file='test/pare_test_00003.jpg'>
+    <box top='70' left='417' width='413' height='408'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='test/3.jpg'>
-    <box top='4' left='390' width='86' height='79'/>
+  <image file='test/pare_test_00004.jpg'>
+    <box top='11' left='630' width='135' height='123'>
+      <label>PARE</label>
+    </box>
   </image>
-  <image file='test/4.jpg'>
-    <box top='103' left='502' width='53' height='51'/>
+  <image file='test/pare_test_00005.jpg'>
+    <box top='137' left='209' width='648' height='454'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00006.jpg'>
+    <box top='163' left='791' width='79' height='80'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00007.jpg'>
+    <box top='102' left='809' width='33' height='35'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00008.jpg'>
+    <box top='165' left='784' width='71' height='59'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00009.jpg'>
+    <box top='209' left='275' width='24' height='24'>
+      <label>PARE</label>
+    </box>
+    <box top='204' left='621' width='19' height='18'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00010.jpg'>
+    <box top='211' left='459' width='27' height='24'>
+      <label>PARE</label>
+    </box>
+    <box top='209' left='717' width='26' height='33'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00011.jpg'>
+    <box top='230' left='641' width='33' height='31'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00012.jpg'>
+    <box top='235' left='739' width='38' height='38'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00014.jpg'>
+    <box top='199' left='757' width='51' height='53'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00015.jpg'>
+    <box top='208' left='763' width='39' height='47'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00016.jpg'>
+    <box top='236' left='571' width='45' height='45'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00017.jpg'>
+    <box top='223' left='692' width='39' height='39'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00018.jpg'>
+    <box top='97' left='701' width='22' height='27'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00019.jpg'>
+    <box top='176' left='854' width='48' height='61'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00020.jpg'>
+    <box top='185' left='558' width='31' height='33'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00021.jpg'>
+    <box top='91' left='91' width='214' height='230'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00022.jpg'>
+    <box top='44' left='97' width='349' height='384'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00023.jpg'>
+    <box top='28' left='22' width='431' height='437'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00024.jpg'>
+    <box top='107' left='76' width='266' height='303'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00025.jpg'>
+    <box top='73' left='319' width='104' height='125'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00026.jpg'>
+    <box top='100' left='414' width='64' height='68'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00027.jpg'>
+    <box top='59' left='167' width='87' height='105'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00028.jpg'>
+    <box top='99' left='224' width='151' height='145'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00029.jpg'>
+    <box top='51' left='237' width='85' height='85'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00030.jpg'>
+    <box top='190' left='240' width='50' height='44'>
+      <label>PARE</label>
+    </box>
+    <box top='176' left='668' width='33' height='35'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00031.jpg'>
+    <box top='274' left='698' width='33' height='33'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00032.jpg'>
+    <box top='150' left='686' width='30' height='43'>
+      <label>PARE</label>
+    </box>
+  </image>
+  <image file='test/pare_test_00035.jpg'>
+    <box top='172' left='731' width='34' height='34'>
+      <label>PARE</label>
+    </box>
   </image>
 </images>
 </dataset>

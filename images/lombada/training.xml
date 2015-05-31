@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='train/lombada_00002.png'>
+    <box top='190' left='998' width='142' height='137'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00003.png'>
+    <box top='61' left='48' width='131' height='136'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00004.png'>
+    <box top='101' left='730' width='140' height='139'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00006.png'>
+    <box top='41' left='129' width='134' height='121'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00007.png'>
+    <box top='78' left='124' width='94' height='100'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00008.png'>
+    <box top='132' left='813' width='274' height='265'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00009.png'>
+    <box top='86' left='673' width='113' height='121'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00010.png'>
+    <box top='95' left='748' width='148' height='174'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00011.png'>
+    <box top='125' left='176' width='158' height='165'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00012.png'>
+    <box top='215' left='498' width='127' height='131'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00013.png'>
+    <box top='305' left='485' width='161' height='154'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00014.png'>
+    <box top='54' left='555' width='347' height='376'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00016.png'>
+    <box top='133' left='135' width='92' height='85'>
+      <label>LOMBADA</label>
+    </box>
+    <box top='131' left='656' width='77' height='76'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00023.png'>
+    <box top='78' left='299' width='177' height='169'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00024.png'>
+    <box top='15' left='390' width='221' height='219'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00025.png'>
+    <box top='9' left='603' width='143' height='140'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00027.png'>
+    <box top='235' left='581' width='147' height='148'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00028.png'>
+    <box top='165' left='506' width='153' height='151'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00030.png'>
+    <box top='190' left='478' width='129' height='134'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00031.png'>
+    <box top='76' left='551' width='127' height='124'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00032.png'>
+    <box top='123' left='541' width='136' height='142'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00033.png'>
+    <box top='119' left='508' width='110' height='109'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00035.png'>
+    <box top='77' left='479' width='149' height='151'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00036.png'>
+    <box top='111' left='540' width='149' height='158'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00037.png'>
+    <box top='135' left='579' width='122' height='120'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00038.png'>
+    <box top='138' left='570' width='121' height='127'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+  <image file='train/lombada_00039.png'>
+    <box top='248' left='571' width='106' height='104'>
+      <label>LOMBADA</label>
+    </box>
+  </image>
+</images>
+</dataset>
