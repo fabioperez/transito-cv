@@ -10,7 +10,7 @@ PROJECT(transito-cv)
 include(dlib/cmake)
 
 MACRO(add_source name)
-   ADD_EXECUTABLE(${name} ${name}.cpp)
+   ADD_EXECUTABLE(${name} src/${name}.cpp)
    TARGET_LINK_LIBRARIES(${name} dlib )
 ENDMACRO()
 
