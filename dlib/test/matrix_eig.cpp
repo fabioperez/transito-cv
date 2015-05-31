@@ -193,21 +193,6 @@ namespace
         test_eigenvalue(10*randm<float,3,3>());
     }
 
-    template <int dims>
-    void test_eigenvalue2()
-    {
-        for (int seed = 0; seed < 10; ++seed)
-        {
-            print_spinner();
-            matrix<double> H = gaussian_randm(dims,dims,seed);
-            H = H*trans(H);
-
-            eigenvalue_decomposition<matrix<double> > eig(H);
-            matrix<double> HH = eig.get_pseudo_v()*diagm(eig.get_real_eigenvalues())*trans(eig.get_pseudo_v());
-            DLIB_TEST_MSG(max(abs(H - HH))<1e-12, "dims: " << dims << "  error: " << max(abs(H - HH))); 
-        }
-    }
-
 // ----------------------------------------------------------------------------------------
 
     class matrix_tester : public tester
@@ -230,12 +215,6 @@ namespace
             matrix_test_double();
             dlog << LINFO << "begin testing with float";
             matrix_test_float();
-
-            test_eigenvalue2<10>();
-            test_eigenvalue2<11>();
-            test_eigenvalue2<3>();
-            test_eigenvalue2<2>();
-            test_eigenvalue2<1>();
         }
     } a;
 

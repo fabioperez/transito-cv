@@ -193,7 +193,6 @@ namespace dlib
 
                 lapack::integer temp;
                 lapack::syevr('V','A','L',tempA,0,0,0,0,-1,temp,d,V,isupz);
-                return;
             }
 #endif
             // Tridiagonalize.
