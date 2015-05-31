@@ -15,4 +15,6 @@ MACRO(add_source name)
 ENDMACRO()
 
 add_source(hog_detector)
+add_source(train_object_detector)
+add_source(detect)
 
