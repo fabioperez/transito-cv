@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
     parser.add_option("c","Set the SVM C parameter to <arg> (default: 1.0).",1);
     parser.add_option("u", "Upsample each input image <arg> times. Each upsampling quadruples the number of pixels in the image (default: 0).", 1);
     parser.add_option("v","Be verbose.");
-    parser.add_option("filter","", 1);
+    parser.add_option("filter","Remove filters with singular value less than <arg> (default: disabled).", 1);
     parser.add_option("detector-name","Save SVM detector to <arg> (default: 'detector.svm').", 1);
     parser.add_option("threads", "Use <arg> threads for training (default: 4).",1);
     parser.add_option("eps", "Set SVM training epsilon to <arg> (default: 0.01).", 1);
@@ -112,11 +112,11 @@ int main(int argc, char** argv) {
     trainer.set_epsilon(eps);
     object_detector<image_scanner_type> detector = trainer.train(images_train, sign_boxes_train);
 
-    cout << "num filters: "<< num_separable_filters(detector) << endl;
     if (filter_val > 0.0) {
+      int num_filters_before = num_separable_filters(detector);
       detector = threshold_filter_singular_values(detector,filter_val);
+      cout << num_filters_before-num_separable_filters(detector) << " filters were removed." << endl;
     }
-    cout << "num filters: "<< num_separable_filters(detector) << endl;
 
     // Test results on training and testing dataset
     cout << "training results: " << test_object_detection_function(detector, images_train, sign_boxes_train) << endl;
