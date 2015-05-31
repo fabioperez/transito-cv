@@ -52,4 +52,5 @@ To visualize detectors, use the program `view_hog`. Usage:
 build/view_hog svm_detectors/pare_detector.svm
 ```
 
-!["Pare" (stop) sign](https://cloud.githubusercontent.com/assets/294960/7903826/7c544010-07be-11e5-834d-feac37d4f7f1.png) !["Lombada" (stop) sign](https://cloud.githubusercontent.com/assets/294960/7903832/ea338d16-07be-11e5-9fb8-09f22c2d93a0.png)
+!["Pare" (stop) sign](https://cloud.githubusercontent.com/assets/294960/7903826/7c544010-07be-11e5-834d-feac37d4f7f1.png) !["Lombada" sign](https://cloud.githubusercontent.com/assets/294960/7903832/ea338d16-07be-11e5-9fb8-09f22c2d93a0.png)
+!["Pedestre" (pedestrian crossing) sign](https://cloud.githubusercontent.com/assets/294960/7904028/e0007d2c-07c3-11e5-9c60-cbd12cadac47.png)
