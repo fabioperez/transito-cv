@@ -12,9 +12,9 @@ cmake --build .
 2. Create XML from sample images:
 
 ```
-imglab/build/imglab -c images/pare/training.xml images/pare/train/*.{jpg,jpeg,png}
+imglab/build/imglab -c images/pare/training.xml images/pare/train/*.(jpg|jpeg|png)
 imglab/build/imglab images/pare/training.xml
-imglab/build/imglab -c images/pare/testing.xml images/pare/test/*.{jpg,jpeg,png}
+imglab/build/imglab -c images/pare/testing.xml images/pare/test/*.(jpg|jpeg|png)
 imglab/build/imglab images/pare/testing.xml
 ```
 
