@@ -58,7 +58,8 @@ int main(int argc, char** argv) {
 
     // Display help message
     if (parser.option("h")) {
-      cout << "Usage: " << argv[0] << " [options] <image dataset file|image file>\n";
+      cout << "Usage: " << argv[0] << " [options] <path>" << endl;
+      cout << "<path> must countain the files training.xml and testing.xml." << endl;
       parser.print_options(); 
 
       return EXIT_SUCCESS;
