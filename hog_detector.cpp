@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
     parser.add_option("u", "Upsample each input image <arg> times. Each upsampling quadruples the number of pixels in the image (default: 0).", 1);
     parser.add_option("v","Be verbose.");
     parser.add_option("filter","", 1);
-    parser.add_option("detector-name","Save SVM detector to <arg> (default: 'detector.svm'.", 1);
+    parser.add_option("detector-name","Save SVM detector to <arg> (default: 'detector.svm').", 1);
     parser.add_option("threads", "Use <arg> threads for training (default: 4).",1);
     parser.add_option("eps", "Set SVM training epsilon to <arg> (default: 0.01).", 1);
     parser.add_option("norm", "If set, the nuclear norm regularization strength will be <arg> (default: disabled).", 1);
@@ -56,18 +56,18 @@ int main(int argc, char** argv) {
     parser.check_option_arg_range("filter", 0.0, 2.0);
     parser.check_option_arg_range("norm", 1e-12, 1e12);
 
-    if (parser.number_of_arguments() == 0) {
-      cout << "You must give an image or an image dataset metadata XML file produced by the imglab tool." << endl;
-      cout << "\nTry the -h option for more information." << endl;
-      return EXIT_FAILURE;
-    }
-
     // Display help message
     if (parser.option("h")) {
       cout << "Usage: " << argv[0] << " [options] <image dataset file|image file>\n";
       parser.print_options(); 
 
       return EXIT_SUCCESS;
+    }
+
+    if (parser.number_of_arguments() == 0) {
+      cout << "You must give an image or an image dataset metadata XML file produced by the imglab tool." << endl;
+      cout << "\nTry the -h option for more information." << endl;
+      return EXIT_FAILURE;
     }
 
     // Declarations and parameters
