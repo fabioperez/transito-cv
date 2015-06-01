@@ -42,6 +42,8 @@ To train a fHOG detector, run `build/hog_detector`. For example, to run the dete
 build/hog_detector -v -u1 --filter 0.4 images/pare/
 ```
 
+The detector will be saved to the file `detector.svm`. To change the file, use the `--detector-name` option.
+
 Run `build/hog_detector -h` for more details.
 
 ## Visualize detectors
