@@ -1,4 +1,4 @@
-/* HOG DETECTOR
+/* HOG DETECTOR TRAINER
  * This program trains a fHOG detector.
  * For help, run ./hog_detector -h
  *
