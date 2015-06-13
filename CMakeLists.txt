@@ -10,7 +10,9 @@ PROJECT(transito-cv)
 include(dlib/cmake)
 
 set(CMAKE_BUILD_TYPE Release)
-set(USE_AVX_INSTRUCTIONS 1)
+option(USE_AVX_INSTRUCTIONS  "Compile your program with AVX instructions" ON)
+add_definitions(-mavx)
+add_definitions(-march=native)
 
 MACRO(add_source name)
     ADD_EXECUTABLE(${name} src/${name}.cpp)
