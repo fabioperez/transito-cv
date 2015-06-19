@@ -66,17 +66,21 @@ int main(int argc, char** argv) {
     detectors.push_back(detector2);
     detectors.push_back(detector3);
 
+    
     image_window win;
     std::vector<rect_detection> rects;
-    for (unsigned long i = 0; i < images.size(); ++i) {
-      evaluate_detectors(detectors, images[i], rects);
 
-      // Put the image and detections into the window.
-      win.clear_overlay();
-      win.set_image(images[i]);
+    correlation_tracker tracker[10];        
+    for (unsigned long i = 0; i < images.size();) {
       std::string text_desc;
 
+
+      evaluate_detectors(detectors, images[i], rects);      
       for (unsigned long j = 0; j < rects.size(); ++j) {
+        printf("Detectormagic!!!\n");
+        printf("j = %lu\n", j);
+        tracker[j].start_track(images[i], rects[j].rect); //centered_rect(point(93,110), 38, 86));
+
         switch (rects[j].weight_index) {
           case 0: 
             text_desc = "PARE";
@@ -89,12 +93,23 @@ int main(int argc, char** argv) {
             break;
           default: break;
         }
-
-        win.add_overlay(rects[j].rect, rgb_pixel(255,rects[j].weight_index*122,0),text_desc);
       }
+      
+      for (int k = 0; k < 10 && i < images.size(); ++k) {
+        printf("i = %lu\n",i);
+      
+        
+        for (int j = 0; j < rects.size(); ++j) {      
+          printf("j = %d\n", j);
+          tracker[j].update(images[i]);
+          win.add_overlay(tracker[j].get_position());
+         }
 
-      //cin.get();
+        win.clear_overlay();
+        win.set_image(images[i]);
 
+        i = i + 1;
+      }
     }
 
   }
