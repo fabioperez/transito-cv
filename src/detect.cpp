@@ -70,45 +70,49 @@ int main(int argc, char** argv) {
     image_window win;
     std::vector<rect_detection> rects;
 
-    correlation_tracker tracker[10];        
+    const int MAX_TRACKERS = 10;
+    const int MAX_ITERATIONS = 6;
+    correlation_tracker tracker[MAX_TRACKERS];
+    int tracker_label[MAX_TRACKERS];
+
     for (unsigned long i = 0; i < images.size();) {
-      std::string text_desc;
-
-
+      
       evaluate_detectors(detectors, images[i], rects);      
-      for (unsigned long j = 0; j < rects.size(); ++j) {
-        printf("Detectormagic!!!\n");
+      for (unsigned long j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
         printf("j = %lu\n", j);
-        tracker[j].start_track(images[i], rects[j].rect); //centered_rect(point(93,110), 38, 86));
-
-        switch (rects[j].weight_index) {
-          case 0: 
-            text_desc = "PARE";
-            break;
-          case 1: 
-            text_desc = "LOMBADA";
-            break;
-          case 2: 
-            text_desc = "PEDESTRE";
-            break;
-          default: break;
-        }
+        tracker[j].start_track(images[i], rects[j].rect);
+        tracker_label[j] = rects[j].weight_index;
       }
       
-      for (int k = 0; k < 10 && i < images.size(); ++k) {
+      for (int k = 0; k < MAX_ITERATIONS && i < images.size(); ++k) {
         printf("i = %lu\n",i);
       
-        
-        for (int j = 0; j < rects.size(); ++j) {      
-          printf("j = %d\n", j);
-          tracker[j].update(images[i]);
-          win.add_overlay(tracker[j].get_position());
-         }
-
         win.clear_overlay();
         win.set_image(images[i]);
 
-        i = i + 1;
+        for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {      
+          printf("j = %d\n", j);
+          tracker[j].update(images[i]);
+
+          std::string text_desc;
+          switch (tracker_label[j]) {
+            case 0: 
+              text_desc = "PARE";
+              break;
+            case 1: 
+              text_desc = "LOMBADA";
+              break;
+            case 2: 
+              text_desc = "PEDESTRE";
+              break;
+            default: 
+              break;
+          }
+
+          win.add_overlay(tracker[j].get_position(), rgb_pixel(255,rects[j].weight_index*122,0), text_desc);
+        }
+
+        i++;
       }
     }
 
