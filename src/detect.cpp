@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     parser.add_option("h","Display this help message.");
     parser.add_option("u", "Upsample each input image <arg> times. Each upsampling quadruples the number of pixels in the image (default: 0).", 1);
     parser.add_option("wait","Wait user input to show next image.");
-    parser.add_option("t","Uses a correlation tracker to improve performance at cost of quality. Signs locations are reevaluated every <arg> frames.", 1);
+    parser.add_option("t","Uses a correlation tracker to improve performance at cost of precision. Signs locations are reevaluated every <arg> frames.", 1);
 
     parser.parse(argc, argv);
     parser.check_option_arg_range("u", 0, 8);
@@ -109,42 +109,42 @@ int main(int argc, char** argv) {
       const int MAX_TRACKERS = 100;
       correlation_tracker tracker[MAX_TRACKERS];
       int tracker_label[MAX_TRACKERS];
+      std::string tracker_text[MAX_TRACKERS];
+
 
       for (unsigned long i = 0; i < images.size();) { 
         evaluate_detectors(detectors, images[i], rects);      
         for (unsigned long j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
-          printf("j = %lu\n", j);
           tracker[j].start_track(images[i], rects[j].rect);
           tracker_label[j] = rects[j].weight_index;
         }
         
         for (int k = 0; k < MAX_ITERATIONS && i < images.size(); ++k) {
-          printf("i = %lu\n",i);
-        
-          win.clear_overlay();
-          win.set_image(images[i]);
-
           for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {      
             // Update tracker
             tracker[j].update(images[i]);
 
             // Get sign name
-            std::string text_desc;
             switch (tracker_label[j]) {
               case 0: 
-                text_desc = "PARE";
+                tracker_text[j] = "PARE";
                 break;
               case 1: 
-                text_desc = "LOMBADA";
+                tracker_text[j] = "LOMBADA";
                 break;
               case 2: 
-                text_desc = "PEDESTRE";
+                tracker_text[j] = "PEDESTRE";
                 break;
               default: 
                 break;
             }
+          }
+          
+          win.clear_overlay();
+          win.set_image(images[i]);
 
-            win.add_overlay(tracker[j].get_position(), rgb_pixel(255,rects[j].weight_index*122,0), text_desc);
+          for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
+            win.add_overlay(tracker[j].get_position(), rgb_pixel(255,rects[j].weight_index*122,0), tracker_text[j]);
           }
 
           // Wait for user input
@@ -152,6 +152,7 @@ int main(int argc, char** argv) {
             cout << "Press any key to continue...";
             cin.get();
           }
+
           i++;
         }
       }
