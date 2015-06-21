@@ -1,6 +1,6 @@
-This is a traffic sign detector that uses [dlib](http://dlib.net/) and its implementation of the Felzenszwalb's version of the Histogram of Oriented (HoG) detector.
+This is a traffic sign detector and classifier that uses [dlib](http://dlib.net/) and its implementation of the Felzenszwalb's version of the Histogram of Oriented (HoG) detector.
 
-The training examples used in this repository are from Brazilian road signs, but the detector should work with any traffic signs, as long as you train it properly. Google Street View images can be used to train the detector. 25~40 images are sufficient to train a good detector.
+The training examples used in this repository are from Brazilian road signs, but the classifier should work with any traffic signs, as long as you train it properly. Google Street View images can be used to train the detectors. 25~40 images are sufficient to train a good detector.
 
 ![](https://cloud.githubusercontent.com/assets/294960/7904020/7d216ae0-07c3-11e5-96fe-2b9d020fec4c.png)
 
@@ -8,8 +8,13 @@ The training examples used in this repository are from Brazilian road signs, but
 
 ```
 mkdir build
-cd build
-cmake .. && cmake --build .
+(cd build; cmake .. && cmake --build .)
+```
+
+If you want to enable AVX instructions (make sure you have compatibility):
+
+```
+(cd build; cmake .. -DUSE_AVX_INSTRUCTIONS=ON && cmake --build .)
 ```
 
 ## Mark signs on images
