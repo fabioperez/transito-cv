@@ -8,8 +8,13 @@ The training examples used in this repository are from Brazilian road signs, but
 
 ```
 mkdir build
-cd build
-cmake .. && cmake --build .
+(cd build; cmake .. && cmake --build .)
+```
+
+If you want to enable AVX instructions (make sure you have compatibility):
+
+```
+(cd build; cmake .. -DUSE_AVX_INSTRUCTIONS=ON && cmake --build .)
 ```
 
 ## Mark signs on images
