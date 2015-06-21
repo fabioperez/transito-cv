@@ -22,11 +22,12 @@ int main(int argc, char** argv) {
 
     parser.add_option("h","Display this help message.");
     parser.add_option("u", "Upsample each input image <arg> times. Each upsampling quadruples the number of pixels in the image (default: 0).", 1);
+    parser.add_option("wait","Wait user input to show next image.");
 
     parser.parse(argc, argv);
     parser.check_option_arg_range("u", 0, 8);
 
-    const char* one_time_opts[] = {"h","u"};
+    const char* one_time_opts[] = {"h","u","wait"};
     parser.check_one_time_options(one_time_opts);
 
     // Display help message
@@ -93,7 +94,10 @@ int main(int argc, char** argv) {
         win.add_overlay(rects[j].rect, rgb_pixel(255,rects[j].weight_index*122,0),text_desc);
       }
 
-      //cin.get();
+    if (parser.option("wait")) {
+      cout << "Press any key to continue...";
+      cin.get();
+    }
 
     }
 
