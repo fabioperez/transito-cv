@@ -16,6 +16,14 @@
 using namespace std;
 using namespace dlib;
 
+struct TrafficSign {
+    string name;
+    string svm_path;
+    rgb_pixel color;
+    TrafficSign(string name, string svm_path, rgb_pixel color) :
+        name(name), svm_path(svm_path), color(color) {};
+};
+
 int main(int argc, char** argv) {
   try {
     command_line_parser parser;
@@ -51,24 +59,32 @@ int main(int argc, char** argv) {
     dlib::array<array2d<unsigned char> > images;
 
     images.resize(parser.number_of_arguments());
-    for (unsigned long i = 0; i < images.size(); ++i) load_image(images[i], parser[i]);
+
+    for (unsigned long i = 0; i < images.size(); ++i) {
+        load_image(images[i], parser[i]);
+    }
+
     for (unsigned long i = 0; i < upsample_amount; ++i) {
       for (unsigned long j = 0; j < images.size(); ++j) {
         pyramid_up(images[j]);
       }
     }
+
     typedef scan_fhog_pyramid<pyramid_down<6> > image_scanner_type; 
 
     // Load SVM detectors
-    object_detector<image_scanner_type> detector1, detector2, detector3;
-    deserialize("svm_detectors/pare_detector.svm") >> detector1;
-    deserialize("svm_detectors/lombada_detector.svm") >> detector2;
-    deserialize("svm_detectors/pedestre_detector.svm") >> detector3;
-    std::vector<object_detector<image_scanner_type> > detectors;
-    detectors.push_back(detector1);
-    detectors.push_back(detector2);
-    detectors.push_back(detector3);
+    std::vector<TrafficSign> signs;
+    signs.push_back(TrafficSign("PARE","svm_detectors/pare_detector.svm",rgb_pixel(255,0,0)));
+    signs.push_back(TrafficSign("LOMBADA","svm_detectors/lombada_detector.svm",rgb_pixel(255,122,0)));
+    signs.push_back(TrafficSign("PEDESTRE","svm_detectors/pedestre_detector.svm",rgb_pixel(255,255,0)));
 
+    std::vector<object_detector<image_scanner_type> > detectors;
+
+    for (int i = 0; i < signs.size(); i++) {
+        object_detector<image_scanner_type> detector;
+        deserialize(signs[i].svm_path) >> detector;
+        detectors.push_back(detector);
+    }
 
     image_window win;
     std::vector<rect_detection> rects;
@@ -80,23 +96,9 @@ int main(int argc, char** argv) {
         // Put the image and detections into the window.
         win.clear_overlay();
         win.set_image(images[i]);
-        std::string text_desc;
 
         for (unsigned long j = 0; j < rects.size(); ++j) {
-          switch (rects[j].weight_index) {
-            case 0: 
-              text_desc = "PARE";
-              break;
-            case 1: 
-              text_desc = "LOMBADA";
-              break;
-            case 2: 
-              text_desc = "PEDESTRE";
-              break;
-            default: 
-              break;
-          }
-          win.add_overlay(rects[j].rect, rgb_pixel(255,rects[j].weight_index*122,0),text_desc);
+            win.add_overlay(rects[j].rect, signs[rects[j].weight_index].color, signs[rects[j].weight_index].name);
         }
 
         if (parser.option("wait")) {
@@ -109,10 +111,10 @@ int main(int argc, char** argv) {
       const int MAX_TRACKERS = 100;
       correlation_tracker tracker[MAX_TRACKERS];
       int tracker_label[MAX_TRACKERS];
-      std::string tracker_text[MAX_TRACKERS];
+      string tracker_text[MAX_TRACKERS];
+      rgb_pixel tracker_color[MAX_TRACKERS];
 
-
-      for (unsigned long i = 0; i < images.size();) { 
+      for (unsigned long i = 0; i < images.size(); ) {
         evaluate_detectors(detectors, images[i], rects);      
         for (unsigned long j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
           tracker[j].start_track(images[i], rects[j].rect);
@@ -121,30 +123,16 @@ int main(int argc, char** argv) {
         
         for (int k = 0; k < MAX_ITERATIONS && i < images.size(); ++k) {
           for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {      
-            // Update tracker
             tracker[j].update(images[i]);
-
-            // Get sign name
-            switch (tracker_label[j]) {
-              case 0: 
-                tracker_text[j] = "PARE";
-                break;
-              case 1: 
-                tracker_text[j] = "LOMBADA";
-                break;
-              case 2: 
-                tracker_text[j] = "PEDESTRE";
-                break;
-              default: 
-                break;
-            }
+            tracker_text[j] = signs[tracker_label[j]].name;
+            tracker_color[j] = signs[tracker_label[j]].color;
           }
           
           win.clear_overlay();
           win.set_image(images[i]);
 
           for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
-            win.add_overlay(tracker[j].get_position(), rgb_pixel(255,rects[j].weight_index*122,0), tracker_text[j]);
+            win.add_overlay(tracker[j].get_position(), tracker_color[j], tracker_text[j]);
           }
 
           // Wait for user input
