@@ -17,11 +17,11 @@ using namespace std;
 using namespace dlib;
 
 struct TrafficSign {
-    string name;
-    string svm_path;
-    rgb_pixel color;
-    TrafficSign(string name, string svm_path, rgb_pixel color) :
-        name(name), svm_path(svm_path), color(color) {};
+  string name;
+  string svm_path;
+  rgb_pixel color;
+  TrafficSign(string name, string svm_path, rgb_pixel color) :
+    name(name), svm_path(svm_path), color(color) {};
 };
 
 int main(int argc, char** argv) {
@@ -29,9 +29,13 @@ int main(int argc, char** argv) {
     command_line_parser parser;
 
     parser.add_option("h","Display this help message.");
-    parser.add_option("u", "Upsample each input image <arg> times. Each upsampling quadruples the number of pixels in the image (default: 0).", 1);
+    parser.add_option("u", "Upsample each input image <arg> times. Each \
+                      upsampling quadruples the number of pixels in the image \
+                      (default: 0).", 1);
     parser.add_option("wait","Wait user input to show next image.");
-    parser.add_option("t","Uses a correlation tracker to improve performance at cost of precision. Signs locations are reevaluated every <arg> frames.", 1);
+    parser.add_option("t","Uses a correlation tracker to improve performance at \
+                      cost of precision. Signs locations are reevaluated every \
+                      <arg> frames.", 1);
 
     parser.parse(argc, argv);
     parser.check_option_arg_range("u", 0, 8);
@@ -43,7 +47,7 @@ int main(int argc, char** argv) {
     // Display help message
     if (parser.option("h")) {
       cout << "Usage: " << argv[0] << " [options] <list of images>" << endl;
-      parser.print_options(); 
+      parser.print_options();
 
       return EXIT_SUCCESS;
     }
@@ -61,7 +65,7 @@ int main(int argc, char** argv) {
     images.resize(parser.number_of_arguments());
 
     for (unsigned long i = 0; i < images.size(); ++i) {
-        load_image(images[i], parser[i]);
+      load_image(images[i], parser[i]);
     }
 
     for (unsigned long i = 0; i < upsample_amount; ++i) {
@@ -70,25 +74,28 @@ int main(int argc, char** argv) {
       }
     }
 
-    typedef scan_fhog_pyramid<pyramid_down<6> > image_scanner_type; 
+    typedef scan_fhog_pyramid<pyramid_down<6> > image_scanner_type;
 
     // Load SVM detectors
     std::vector<TrafficSign> signs;
-    signs.push_back(TrafficSign("PARE","svm_detectors/pare_detector.svm",rgb_pixel(255,0,0)));
-    signs.push_back(TrafficSign("LOMBADA","svm_detectors/lombada_detector.svm",rgb_pixel(255,122,0)));
-    signs.push_back(TrafficSign("PEDESTRE","svm_detectors/pedestre_detector.svm",rgb_pixel(255,255,0)));
+    signs.push_back(TrafficSign("PARE", "svm_detectors/pare_detector.svm",
+                                rgb_pixel(255,0,0)));
+    signs.push_back(TrafficSign("LOMBADA", "svm_detectors/lombada_detector.svm",
+                                rgb_pixel(255,122,0)));
+    signs.push_back(TrafficSign("PEDESTRE", "svm_detectors/pedestre_detector.svm",
+                                rgb_pixel(255,255,0)));
 
     std::vector<object_detector<image_scanner_type> > detectors;
 
     for (int i = 0; i < signs.size(); i++) {
-        object_detector<image_scanner_type> detector;
-        deserialize(signs[i].svm_path) >> detector;
-        detectors.push_back(detector);
+      object_detector<image_scanner_type> detector;
+      deserialize(signs[i].svm_path) >> detector;
+      detectors.push_back(detector);
     }
 
     image_window win;
     std::vector<rect_detection> rects;
-    const int MAX_ITERATIONS = get_option(parser, "t", 0); 
+    const int MAX_ITERATIONS = get_option(parser, "t", 0);
     if (MAX_ITERATIONS == 0) {
       for (unsigned long i = 0; i < images.size(); ++i) {
         evaluate_detectors(detectors, images[i], rects);
@@ -98,7 +105,8 @@ int main(int argc, char** argv) {
         win.set_image(images[i]);
 
         for (unsigned long j = 0; j < rects.size(); ++j) {
-            win.add_overlay(rects[j].rect, signs[rects[j].weight_index].color, signs[rects[j].weight_index].name);
+          win.add_overlay(rects[j].rect, signs[rects[j].weight_index].color,
+                          signs[rects[j].weight_index].name);
         }
 
         if (parser.option("wait")) {
@@ -115,24 +123,25 @@ int main(int argc, char** argv) {
       rgb_pixel tracker_color[MAX_TRACKERS];
 
       for (unsigned long i = 0; i < images.size(); ) {
-        evaluate_detectors(detectors, images[i], rects);      
+        evaluate_detectors(detectors, images[i], rects);
         for (unsigned long j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
           tracker[j].start_track(images[i], rects[j].rect);
           tracker_label[j] = rects[j].weight_index;
         }
-        
+
         for (int k = 0; k < MAX_ITERATIONS && i < images.size(); ++k) {
-          for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {      
+          for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
             tracker[j].update(images[i]);
             tracker_text[j] = signs[tracker_label[j]].name;
             tracker_color[j] = signs[tracker_label[j]].color;
           }
-          
+
           win.clear_overlay();
           win.set_image(images[i]);
 
           for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
-            win.add_overlay(tracker[j].get_position(), tracker_color[j], tracker_text[j]);
+            win.add_overlay(tracker[j].get_position(), tracker_color[j],
+                            tracker_text[j]);
           }
 
           // Wait for user input
