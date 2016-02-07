@@ -33,15 +33,11 @@ int main(int argc, char** argv) {
                       upsampling quadruples the number of pixels in the image \
                       (default: 0).", 1);
     parser.add_option("wait","Wait user input to show next image.");
-    parser.add_option("t","Uses a correlation tracker to improve performance at \
-                      cost of precision. Signs locations are reevaluated every \
-                      <arg> frames.", 1);
 
     parser.parse(argc, argv);
     parser.check_option_arg_range("u", 0, 8);
-    parser.check_option_arg_range("t", 0, 999);
 
-    const char* one_time_opts[] = {"h","u","wait", "t"};
+    const char* one_time_opts[] = {"h","u","wait"};
     parser.check_one_time_options(one_time_opts);
 
     // Display help message
@@ -95,63 +91,21 @@ int main(int argc, char** argv) {
 
     image_window win;
     std::vector<rect_detection> rects;
-    const int MAX_ITERATIONS = get_option(parser, "t", 0);
-    if (MAX_ITERATIONS == 0) {
-      for (unsigned long i = 0; i < images.size(); ++i) {
-        evaluate_detectors(detectors, images[i], rects);
+    for (unsigned long i = 0; i < images.size(); ++i) {
+      evaluate_detectors(detectors, images[i], rects);
 
-        // Put the image and detections into the window.
-        win.clear_overlay();
-        win.set_image(images[i]);
+      // Put the image and detections into the window.
+      win.clear_overlay();
+      win.set_image(images[i]);
 
-        for (unsigned long j = 0; j < rects.size(); ++j) {
-          win.add_overlay(rects[j].rect, signs[rects[j].weight_index].color,
-                          signs[rects[j].weight_index].name);
-        }
-
-        if (parser.option("wait")) {
-          cout << "Press any key to continue...";
-          cin.get();
-        }
+      for (unsigned long j = 0; j < rects.size(); ++j) {
+        win.add_overlay(rects[j].rect, signs[rects[j].weight_index].color,
+                        signs[rects[j].weight_index].name);
       }
-    }
-    else {
-      const int MAX_TRACKERS = 100;
-      correlation_tracker tracker[MAX_TRACKERS];
-      int tracker_label[MAX_TRACKERS];
-      string tracker_text[MAX_TRACKERS];
-      rgb_pixel tracker_color[MAX_TRACKERS];
 
-      for (unsigned long i = 0; i < images.size(); ) {
-        evaluate_detectors(detectors, images[i], rects);
-        for (unsigned long j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
-          tracker[j].start_track(images[i], rects[j].rect);
-          tracker_label[j] = rects[j].weight_index;
-        }
-
-        for (int k = 0; k < MAX_ITERATIONS && i < images.size(); ++k) {
-          for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
-            tracker[j].update(images[i]);
-            tracker_text[j] = signs[tracker_label[j]].name;
-            tracker_color[j] = signs[tracker_label[j]].color;
-          }
-
-          win.clear_overlay();
-          win.set_image(images[i]);
-
-          for (int j = 0; j < rects.size() && j < MAX_TRACKERS; ++j) {
-            win.add_overlay(tracker[j].get_position(), tracker_color[j],
-                            tracker_text[j]);
-          }
-
-          // Wait for user input
-          if (parser.option("wait")) {
-            cout << "Press any key to continue...";
-            cin.get();
-          }
-
-          i++;
-        }
+      if (parser.option("wait")) {
+        cout << "Press any key to continue...";
+        cin.get();
       }
     }
   }

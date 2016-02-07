@@ -83,7 +83,7 @@ build/detect --wait examples/images/*.jpg
 To run the examples:
 
 ```
-build/detect -t3 examples/video/* 
+build/detect examples/video/*
 build/detect --wait -u1 examples/images/*
 ```
 
