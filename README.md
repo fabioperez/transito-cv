@@ -1,3 +1,5 @@
+**Note: this repository was created for the final project of an undergraduate course and won't receive any major updates. There are methods with better results than HoG for traffic sign detector, such as Deep Learning architectures. Still, you can use this repository as a study reference or for some practical purposes.**
+
 This is a traffic sign detector and classifier that uses [dlib](http://dlib.net/) and its implementation of the Felzenszwalb's version of the Histogram of Oriented Gradients (HoG) detector.
 
 The training examples used in this repository are from Brazilian road signs, but the classifier should work with any traffic signs, as long as you train it properly. Google Street View images can be used to train the detectors. 25~40 images are sufficient to train a good detector.
