@@ -7,9 +7,10 @@ cmake_minimum_required(VERSION 2.8.4)
 
 PROJECT(transito-cv)
 
-include(dlib/cmake)
+include(dlib/dlib/cmake)
 
 set(CMAKE_BUILD_TYPE Release)
+set(DLIB_NO_GUI_SUPPORT OFF)
 
 option(USE_AVX_INSTRUCTIONS  "Compile your program with AVX instructions" OFF)
 
